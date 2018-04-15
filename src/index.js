@@ -21,8 +21,9 @@ const middlewareRouter = routerMiddleware(history);
 const store = createStore(
 	reducers,
 	composeWithDevTools(
-		applyMiddleware(middlewareRouter,sagaMiddleware)
-	));
+		applyMiddleware(middlewareRouter, sagaMiddleware)
+	)
+);
 
 sagaMiddleware.run(rootSaga);
 

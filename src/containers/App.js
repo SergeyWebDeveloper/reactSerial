@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {Routing} from '../route';
 import {Row, Col} from 'antd';
 
-class App extends PureComponent {
+class App extends Component {
 	render() {
 		return (
 			<div className='container__app' style={{padding: '15px'}}>
