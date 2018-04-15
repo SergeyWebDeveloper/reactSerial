@@ -7,7 +7,7 @@ import {CurrentSerial} from './CurrentSerial';
 class CatalogSerials extends PureComponent {
 	renderSerialItem = () => {
 		return _.map(this.props.serials.mapSerials,(item)=>{
-			return <CurrentSerial key={item.show.id} info={item} />
+			return <CurrentSerial urlParent={this.props.match.url} key={item.show.id} info={item} />
 		});
 	};
 	render(){

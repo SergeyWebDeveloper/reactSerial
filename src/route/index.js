@@ -8,7 +8,8 @@ export const Routing = () => {
 	return(
 		<Switch>
 			<Route exact path='/' component={HomePage} />
-			<Route path='/catalog-serials' component={CatalogSerials} />
+			<Route exact path='/catalog' component={CatalogSerials} />
+			<Route path='/catalog/:name' component={()=>'Children'}/>
 		</Switch>
 	)
 };

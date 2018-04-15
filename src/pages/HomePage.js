@@ -1,11 +1,11 @@
-import React,{PureComponent,Fragment} from 'react';
+import React,{Component,Fragment} from 'react';
 import { Input } from 'antd';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {fetchSerial} from '../actions';
 const Search = Input.Search;
 
-class HomePage extends PureComponent {
+class HomePage extends Component {
 	state={
 		changeLocation: false
 	};
@@ -27,7 +27,7 @@ class HomePage extends PureComponent {
 					onSearch={this.handleSearchInput}
 					enterButton
 				/>
-				{this.state.changeLocation&&<Redirect to='/catalog-serials' />}
+				{this.state.changeLocation&&<Redirect to='/catalog' />}
 			</Fragment>
 		)
 	}
@@ -37,4 +37,4 @@ const mapStateToProps = ({serials}) => {
 	return {serials}
 };
 
-export default (connect(mapStateToProps,{fetchSerial})(HomePage));
+export default connect(mapStateToProps,{fetchSerial})(HomePage);
