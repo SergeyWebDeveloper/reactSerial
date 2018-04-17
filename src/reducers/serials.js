@@ -29,7 +29,7 @@ export const serials = (state = initialState, {type, payload}) => {
 			return {
 				...state,
 				loading: false,
-				mapSerials: [...payload,...state.mapSerials],
+				mapSerials: [...payload],
 				error: {
 					status: false,
 					message: ''

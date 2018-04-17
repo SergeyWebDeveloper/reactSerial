@@ -1,24 +1,21 @@
 import React,{Component,Fragment} from 'react';
 import { Input } from 'antd';
-import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {fetchSerial} from '../actions';
 const Search = Input.Search;
 
 class HomePage extends Component {
 	state={
-		changeLocation: false
+		changeLocation: false,
+		value: ''
 	};
 	handleSearchInput = (value) =>{
-		this.props.fetchSerial(value);
-	};
-	componentWillReceiveProps(nextProps){
-		if(this.props.serials.mapSerials.length!==nextProps.serials.mapSerials.length){
+		if(value.trim().length){
 			this.setState({
+				value,
 				changeLocation: true
 			});
 		}
-	}
+	};
 	render(){
 		return(
 			<Fragment>
@@ -28,13 +25,10 @@ class HomePage extends Component {
 					enterButton
 				/>
 				{this.state.changeLocation&&<Redirect to='/catalog' />}
+				{this.state.changeLocation&&localStorage.setItem('query',this.state.value)}
 			</Fragment>
 		)
 	}
 }
 
-const mapStateToProps = ({serials}) => {
-	return {serials}
-};
-
-export default connect(mapStateToProps,{fetchSerial})(HomePage);
+export default HomePage;
